@@ -1,0 +1,1160 @@
+/* 
+ * VARIABLES CSS GLOBALES
+ * colores y valores reutilizables en todo el documento
+ */
+:root {
+  /* Paleta de colores principal */
+  --primary-color: #1a73e8;       /* Azul corporativo principal ✓ */
+  --primary-dark: #003d82;        /* Azul oscuro para contrastes ✓ */
+  --teal-color: #005f73;          /* Color azul-verdoso corporativo ✓ */
+  --light-color: #f8f9fa;         /* Fondo claro para el cuerpo ✓ */
+  --text-color: #3c4043;          /* Color principal para texto ✓ */
+  --white: #ffffff;               /* Blanco puro ✓ */
+  
+  /* Efectos de transición */
+  --easing: cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Curva de animación */
+  --transition: all 0.3s ease;    /* Transición estándar */
+}
+
+/* 
+ * RESET Y ESTILOS BASE 
+ * Establece valores iniciales consistentes en todos los navegadores
+ */
+* {
+  margin: 0;                      /* Elimina márgenes por defecto */
+  padding: 0;                     /* Elimina padding por defecto */
+  box-sizing: border-box;         /* Modelo de caja más intuitivo */
+}
+
+/* 
+ * ESTILOS GENERALES DEL CUERPO 
+ * tipografía base y colores principales
+ */
+body {
+  font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+  line-height: 1.6;               /* Espaciado de línea legible */
+  color: var(--text-color);       /* Color de texto principal */
+  background-color: var(--light-color); /* Color de fondo */
+  transition: var(--transition);  /* Transición para cambios de tema */
+}
+
+/* 
+ * CONTENEDOR PRINCIPAL 
+ * Centra el contenido y establece un ancho máximo
+ */
+.container {
+  width: 90%;                  /* Ancho relativo */
+  max-width: 1200px;              /* Ancho máximo del contenido */
+  margin: 0 auto;                 /* Centrado horizontal */
+  padding: 0 15px;                /* Padding lateral responsive */
+}
+
+section {
+  scroll-margin-top: 80px; /* Altura de tu header */
+  padding-top: 30px; /* Espacio adicional */
+}
+
+#inicio {
+  scroll-margin-top: 0; /* La sección inicio no necesita ajuste */
+}
+
+/* 
+ * JERARQUÍA DE TÍTULOS 
+ * Estilos consistentes para los headings
+ */
+h1 {
+  font-size: 2.5rem;              /* Tamaño grande para título principal */
+  line-height: 1.2;               /* Espaciado ajustado */
+  color: var(--light-color);      /* Color claro para contraste */
+}
+
+h2 {
+  font-size: 2rem;                /* Tamaño para subtítulos */
+  font-weight: 700;               /* Grosor de fuente */
+  border-bottom: 2px solid var(--teal-color); /* Línea decorativa */
+  padding-bottom: 0.5rem;         /* Espacio bajo el texto */
+  margin-top: 2rem;               /* Margen superior */
+  margin-bottom: 1rem;            /* Margen inferior */
+  color: #000000;                 /* Color negro para títulos */
+}
+
+h3 {
+  font-size: 1.5rem;              /* Tamaño para secciones */
+  font-weight: 700;               /* Grosor de fuente */
+  margin-bottom: 1rem;            /* Margen inferior */
+  color: #000000;                 /* Color negro */
+}
+
+h4 {
+  font-size: 1.2rem;              /* Tamaño para subtítulos menores */
+  color: var(--teal-color);       /* Color corporativo */
+}
+
+/* 
+ * ELEMENTOS DE TEXTO 
+ * Estilos para párrafos y enlaces
+ */
+p {
+  margin-bottom: 1.2rem;          /* Espaciado entre párrafos */
+  font-size: 1.1rem;              /* Tamaño de fuente legible */
+}
+
+.subtitle {
+  font-size: 1.3rem;              /* Tamaño intermedio */
+  max-width: 800px;               /* Ancho máximo para legibilidad */
+  margin: 0 auto;                 /* Centrado */
+  opacity: 0.9;                   /* Transparencia sutil */
+  color: rgba(255, 255, 255, 0.9); /* Blanco semi-transparente */
+}
+
+a {
+  text-decoration: none;          /* Sin subrayado */
+  color: var(--secondary-color);  /* Color de enlaces */
+  transition: var(--transition);  /* Transición suave para hover */
+}
+
+
+/* ===== HEADER Y NAVBAR ADAPTABLE ===== */
+header {
+  position: fixed; /* Fija el header en la parte superior */
+  top: 0; /* Lo posiciona en el borde superior */
+  left: 0; /* Lo posiciona en el borde izquierdo */
+  width: 100%; /* Ocupa todo el ancho disponible */
+  background-color: var(--white); /* Color de fondo */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+  z-index: 1000; /* Asegura que esté por encima de otros elementos */
+  transition: var(--transition); /* Transición suave para cambios */
+  /* lo añadi para que se vea mas hermoso*/
+  backdrop-filter: blur(12px); /* Efecto de desenfoque del fondo */
+  border-radius: 0px 0px 9px 9px; /* Bordes redondeados abajo */
+  -webkit-backdrop-filter: blur(12px); /* Compatibilidad con Safari */
+  border-bottom: 1px solid #f0f0f0; /* Borde inferior sutil */
+  box-shadow: 0 5px 30px rgb(255, 255, 255);; /* Sombra más visible */
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+    position: relative;
+}
+
+.logo {
+    flex-shrink: 0;
+    margin-right: auto;
+}
+
+.logo img {
+    height: 50px;
+    transition: var(--transition);
+}
+
+.logo img:hover {
+    transform: scale(1.05);
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    margin-left: auto;
+}
+
+.nav-links li {
+    margin-left: 30px;
+}
+
+.nav-link {
+    color: var(--text-color);
+    font-weight: 600;
+    position: relative;
+    padding: 5px 0;
+    text-decoration: none;
+    font-size: 16px;
+    transition: var(--transition);
+}
+
+.nav-link::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--primary-color);
+    transition: var(--transition);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 100%;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: var(--primary-color);
+}
+
+/* 
+ * HERO SECTION 
+ * Sección principal con imagen de fondo
+ */
+.hero {
+     /* Fondo con un degradado oscuro encima de una imagen de fondo centrada y que cubre todo el contenedor */
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+      url("../empresa.png") center/cover;
+    color: white; /* Color de texto en blanco para contraste sobre el fondo oscuro */
+    padding: 180px 20px 100px; /* menos padding, más limpio y con espacio lateral */
+    margin-top: 80px; /* ajusta el margen superior del header */
+    text-align: center; /* centra */
+    display: flex; /* Convierte el contenedor en un flexbox para poder centrar todo el contenido fácilmente */
+    align-items: center; /* centra verticalmente */
+    justify-content: center; /* Centra horizontalmente el contenido dentro del contenedor */
+    min-height: 80vh; /* hace que ocupe casi toda la altura de la ventana */
+}
+
+.hero-content h1 {
+    font-size: 3.5rem; /* Tamaño grande */
+    margin-bottom: 1.8rem; /* Espaciado inferior */
+    color: white; /* Texto blanco */
+    line-height: 1.2; /* Espaciado de línea */
+    font-weight: 700; /* Grosor de fuente */
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2); /* Sombra de texto */
+}
+
+.hero-content p {
+    font-size: 1.35rem; /* Tamaño de fuente */
+    max-width: 700px; /* Ancho máximo para legibilidad */
+    margin: 0 auto 3rem; /* Centrado con margen inferior */
+    color: rgba(255, 255, 255, 0.9); /* Blanco semi-transparente */
+    line-height: 1.7; /* Espaciado de línea */
+}
+/* Contenedor de botones en hero */
+.hero-buttons {
+    display: flex; /* Disposición en línea */
+    justify-content: center; /* Centrado horizontal */
+    gap: 25px; /* Espacio entre botones */
+    margin-top: 3rem; /* Margen superior */
+}
+/* 
+ * COMPONENTE: BOTONES 
+ * Estilos para botones primarios y secundarios
+ */
+.btn {
+    display: inline-block; /* Permite padding y margin */
+    padding: 14px 32px; /* Espaciado interno */
+    background: #005f73; /* Color principal (azul-verdoso) */
+    color: white; /* Texto blanco */
+    border-radius: 50px; /* Bordes completamente redondeados */
+    font-weight: 600; /* Grosor de fuente */
+    text-align: center; /* Centrado de texto */
+    text-decoration: none; /* Sin subrayado */
+    position: relative; /* Para efectos pseudo-elementos */
+    overflow: hidden; /* Oculta exceso de pseudo-elementos */
+    transition: all 0.4s ease; /* Transición suave */
+    border: none; /* Sin borde */
+    cursor: pointer; /* Cursor pointer */
+    box-shadow: 0 4px 15px rgba(0, 95, 115, 0.3); /* Sombra sutil */
+    font-family: inherit; /* Hereda fuente del padre */
+    font-size: 1rem; /* Tamaño de fuente */
+}
+/* Efecto hover */
+.btn:hover {
+    transform: translateY(-3px) scale(1.03); /* Elevación y escala */
+    box-shadow: 0 8px 25px rgba(0, 95, 115, 0.4); /* Sombra más pronunciada */
+    background: #004d5c; /* Color más oscuro */
+    color: white; /* Texto blanco */
+}
+/* Efecto de brillo al pasar el mouse */
+.btn::before {
+    content: ""; /* Pseudo-elemento vacío */
+    position: absolute; /* Posicionamiento absoluto */
+    top: 0; /* Alineado arriba */
+    left: -100%; /* Fuera de vista inicialmente */
+    width: 100%; /* Ancho completo */
+    height: 100%; /* Alto completo */
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(157, 227, 173, 0.4),
+        transparent
+    ); /* Degradado */
+    transition: 0.5s; /* Transición */
+}
+/* Animación del brillo al hacer hover */
+.btn:hover::before {
+    left: 100%; /* Desplazamiento a la derecha */
+}
+
+/* ===== MEDIA QUERIES PARA DISPOSITIVOS MÓVILES ===== */
+@media (max-width: 992px) {
+    .hero-content h1 {
+        font-size: 3rem;
+    }
+    
+    .hero {
+        min-height: 70vh;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Navbar móvil */
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 70%;
+        height: 100vh;
+        background-color: var(--white);
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        padding: 100px 30px 30px;
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+        transition: right 0.3s ease;
+        z-index: 999;
+    }
+    
+    .nav-links.active {
+        right: 0;
+    }
+    
+    .nav-links li {
+        margin: 15px 0;
+        width: 100%;
+    }
+    
+    .nav-link {
+        display: block;
+        padding: 15px 20px;
+        font-size: 1.2rem;
+        color: var(--text-color);
+        border-radius: 8px;
+        width: 100%;
+    }
+    
+    .nav-link.active {
+        background-color: rgba(26, 115, 232, 0.1);
+        color: var(--primary-color);
+    }  
+    /* Hero section móvil */
+    .hero {
+        padding: 150px 20px 80px;
+        min-height: 60vh;
+    }
+    
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+    
+    .hero-content p {
+        font-size: 1.2rem;
+    }
+    
+    .hero-buttons {
+        flex-direction: column;
+        gap: 15px;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+    
+    .hero-content p {
+        font-size: 1.1rem;
+    }
+    
+    .logo img {
+        height: 40px;
+    }
+    
+    .nav-links {
+        width: 80%;
+    }
+    
+    .btn {
+        padding: 12px 24px;
+        font-size: 0.9rem;
+    }
+}
+
+
+
+
+
+
+/* 
+ * SECCIONES DE CARACTERÍSTICAS 
+ * Tarjetas con efecto hover
+ */
+.feature-section {
+  background: white;              /* Fondo blanco */
+  border-radius: 8px;             /* Esquinas redondeadas */
+  padding: 30px;                  /* Espaciado interno */
+  margin-bottom: 30px;            /* Separación entre secciones */
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05); /* Sombra ligera */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transición */
+}
+
+.feature-section:hover {
+  transform: translateY(-3px);    /* Efecto de elevación */
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1); /* Sombra más pronunciada */
+}
+
+/* 
+ * SECCIÓN DESTACADA 
+ * Estilo especial para contenido resaltado
+ */
+.feature-highlight {
+  background-color: #f0f7ff;      /* Fondo azul muy claro */
+  border-left: 4px solid var(--teal-color); /* Borde lateral */
+  padding: 25px;                  /* Espaciado interno */
+  margin: 30px 0;                 /* Margen vertical */
+  border-radius: 4px;             /* Esquinas ligeramente redondeadas */
+}
+
+/* para las 3 imagenes en la derecha*/
+.feature-container {
+    display: flex;
+    align-items: center;
+    gap: 40px; /* Espacio entre texto e imagen */
+}
+
+.feature-content {
+    flex: 1;
+}
+
+.feature-image {
+    flex: 1;
+    text-align: right;
+}
+
+.feature-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px; /* Opcional: para esquinas redondeadas */
+}
+
+/* Mantén tus estilos existentes para las listas */
+.benefits-list, .process-steps {
+    /* Tus estilos actuales aquí */
+}
+
+/* 
+ * LISTA DE BENEFICIOS 
+ * Estilo con iconos de check
+ */
+.benefits-list {
+  list-style-type: none;          /* Elimina viñetas por defecto */
+  padding-left: 0;                /* Elimina padding izquierdo */
+}
+
+.benefits-list li {
+  position: relative;             /* Para posicionar el pseudo-elemento */
+  padding-left: 30px;             /* Espacio para el icono */
+  margin-bottom: 15px;            /* Separación entre ítems */
+  transition: transform 0.2s ease; /* Transición para efecto hover */
+}
+
+.benefits-list li:hover {
+  transform: translateX(5px);     /* Desplazamiento al hacer hover */
+}
+
+/* Icono de check usando Font Awesome */
+.benefits-list li:before {
+  content: "\f00c";               /* Código del icono check */
+  font-family: "Font Awesome 6 Free"; /* Fuente de iconos */
+  font-weight: 900;               /* Peso de la fuente (solid) */
+  color: var(--teal-color);       /* Color corporativo */
+  position: absolute;             /* Posicionamiento absoluto */
+  left: 0;                        /* Alineado a la izquierda */
+}
+
+/* 
+ * LISTA DE PROCESOS NUMERADA 
+ * Estilo con números circulares
+ */
+.process-steps {
+  counter-reset: step-counter;    /* Inicia contador */
+  list-style-type: none;          /* Elimina numeración por defecto */
+  padding-left: 0;                /* Elimina padding izquierdo */
+}
+
+.process-steps li {
+  position: relative;             /* Para posicionar el número */
+  padding-left: 50px;             /* Espacio para el número */
+  margin-bottom: 20px;            /* Separación entre pasos */
+  counter-increment: step-counter; /* Incrementa el contador */
+}
+
+/* Estilo de los números circulares */
+.process-steps li:before {
+  content: counter(step-counter); /* Muestra el número */
+  position: absolute;             /* Posicionamiento absoluto */
+  left: 0;                        /* Alineado a la izquierda */
+  top: 0;                         /* Alineado arriba */
+  width: 30px;                    /* Ancho del círculo */
+  height: 30px;                   /* Alto del círculo */
+  background: var(--teal-color);   /* Color de fondo */
+  color: white;                   /* Color del número */
+  border-radius: 50%;             /* Forma circular */
+  display: flex;                  /* Centrado con flexbox */
+  align-items: center;            /* Centrado vertical */
+  justify-content: center;        /* Centrado horizontal */
+  font-weight: bold;              /* Texto en negrita */
+}
+
+/* 
+ * CARRUSEL DE IMÁGENES 
+ * Componente interactivo para mostrar capturas de imagenes
+ */
+.carousel-container {
+  width: 100%;                    /* Ancho completo */
+  max-width: 1000px;              /* Ancho máximo */
+  margin: 40px auto;              /* Centrado con margen */
+  position: relative;             /* Contexto de posicionamiento */
+}
+
+.carousel {
+  position: relative;             /* Contexto para elementos absolutos */
+  width: 100%;                    /* Ancho completo */
+  border-radius: 12px;            /* Esquinas redondeadas */
+  overflow: hidden;               /* Oculta contenido que sobresale */
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15); /* Sombra pronunciada */
+}
+
+.carousel-inner {
+  position: relative;             /* Contexto para slides */
+  width: 100%;                    /* Ancho completo */
+  height: 500px;                  /* Altura fija */
+  overflow: hidden;               /* Oculta slides no activos */
+  background-color: var(--dark);  /* Fondo oscuro por defecto */
+}
+
+/* Estilos para cada slide */
+.carousel-item {
+  position: absolute;             /* Posicionamiento superpuesto */
+  top: 0;                         /* Alineado arriba */
+  left: 0;                        /* Alineado a la izquierda */
+  width: 100%;                    /* Ancho completo */
+  height: 100%;                   /* Alto completo */
+  opacity: 0;                     /* Inicialmente invisible */
+  transition: opacity var(--transition) var(--easing); /* Transición suave */
+}
+
+/* Slide activo */
+.carousel-item.active {
+  opacity: 1;                     /* Visible */
+  z-index: 1;                     /* Traído al frente */
+}
+
+/* Estilos para imágenes del carrusel */
+.carousel-item img {
+  width: 100%;                    /* Ancho completo */
+  height: 100%;                   /* Alto completo */
+  object-fit: cover;              /* Ajuste de imagen */
+  object-position: center;        /* Centrado */
+  filter: blur(2px);              /* Efecto blur inicial (Imagen borrosa por defecto) */
+  transition: filter 0.7s ease;   /* Transición para efecto blur */
+}
+
+/* Imagen activa sin blur */
+.carousel-item.active img {
+  filter: blur(0);                /* Elimina el blur (Imagen nítida en la activa) */
+}
+
+/* Texto descriptivo sobre imágenes (texto centrado) */
+.carousel-caption {
+  position: absolute;             /* Posicionamiento sobre la imagen */
+  bottom: 0;                      /* Alineado abajo */
+  left: 0;                        /* Alineado a la izquierda */
+  right: 0;                       /* Ancho completo */
+  background: linear-gradient(to top, rgb(0, 0, 0), transparent); /* Degradado */
+  color: rgba(235, 228, 228, 0.937); /* Color de texto */
+  padding: 30px;                  /* Espaciado interno */
+  text-align: center;             /* Texto centrado */
+  transform: translateY(20px);    /* Posición inicial fuera de vista */
+  transition: transform 0.5s ease, opacity 0.5s ease; /* Animación de entrada */
+  opacity: 0;                     /* Inicialmente transparente */
+  z-index: 2;                     /* Sobre la imagen */
+}
+
+/* Texto visible cuando el slide está activo */
+.carousel-item.active .carousel-caption {
+  transform: translateY(0);       /* Posición final */
+  opacity: 1;                     /* Visible */
+}
+
+/* Controles de navegación */
+.carousel-control {
+  position: absolute;             /* Posicionamiento absoluto */
+  top: 50%;                       /* Centrado vertical */
+  transform: translateY(-50%);    /* Ajuste fino de centrado */
+  background: rgba(255, 255, 255, 0.9); /* Fondo semitransparente */
+  color: var(--primary-color);    /* Color del icono */
+  border: none;                   /* Sin borde */
+  width: 50px;                    /* Ancho */
+  height: 50px;                   /* Alto */
+  border-radius: 50%;             /* Forma circular */
+  cursor: pointer;                /* Cursor pointer */
+  font-size: 1.25rem;             /* Tamaño del icono */
+  transition: all 0.3s ease;      /* Transición suave */
+  display: flex;                  /* Centrado con flexbox */
+  align-items: center;            /* Centrado vertical */
+  justify-content: center;        /* Centrado horizontal */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Sombra sutil */
+  z-index: 10;                    /* Sobre otros elementos */
+  opacity: 0.8;                   /* Ligera transparencia */
+}
+
+/* Efecto hover para controles */
+.carousel-control:hover {
+  background: white;              /* Fondo sólido */
+  opacity: 1;                     /* Sin transparencia */
+  transform: translateY(-50%) scale(1.1); /* Efecto de escala */
+}
+
+/* Control anterior */
+.carousel-control.prev {
+  left: 20px;                     /* Posición izquierda */
+}
+
+/* Control siguiente */
+.carousel-control.next {
+  right: 20px;                    /* Posición derecha */
+}
+
+/* Indicadores de posición */
+.carousel-indicators {
+  position: absolute;             /* Posicionamiento absoluto */
+  bottom: 20px;                   /* Distancia desde abajo */
+  left: 0;                        /* Alineado a la izquierda */
+  right: 0;                       /* Ancho completo */
+  display: flex;                  /* Disposición en línea */
+  justify-content: center;        /* Centrado horizontal */
+  gap: 12px;                      /* Espacio entre indicadores */
+  z-index: 10;                    /* Sobre otros elementos */
+}
+
+/* Estilo de cada indicador */
+.indicator {
+  width: 14px;                    /* Ancho */
+  height: 14px;                   /* Alto */
+  border-radius: 50%;             /* Forma circular */
+  background: rgba(255, 255, 255, 0.5); /* Color semitransparente */
+  border: none;                   /* Sin borde */
+  cursor: pointer;                /* Cursor pointer */
+  transition: all 0.3s ease;      /* Transición suave */
+  padding: 0;                     /* Sin padding */
+  opacity: 0.7;                   /* Ligera transparencia */
+}
+
+/* Indicador activo */
+.indicator.active {
+  background: var(--teal-color);  /* Color corporativo */
+  transform: scale(1.2);          /* Efecto de escala */
+  opacity: 1;                     /* Sin transparencia */
+}
+
+/* 
+ * BOTÓN "VOLVER AL INICIO" 
+ * Estilo llamativo con efectos interactivos
+ * Back button --> Botón "Volver al inicio" 
+ */
+.back-button {
+  display: inline-flex;           /* Disposición en línea con flexbox */
+  align-items: center;            /* Centrado vertical */
+  padding: 14px 32px;             /* Espaciado interno */
+  background: var(--teal-color);  /* Color de fondo */
+  color: white;                   /* Texto blanco */
+  border-radius: 50px;            /* Bordes completamente redondeados */
+  font-weight: 600;               /* Grosor de fuente */
+  position: relative;             /* Para efectos pseudo-elementos */
+  overflow: hidden;               /* Oculta contenido que sobresale */
+  transition: all 0.4s ease;      /* Transición suave */
+  border: none;                   /* Sin borde */
+  cursor: pointer;                /* Cursor pointer */
+  box-shadow: 0 4px 15px rgba(0, 95, 115, 0.3); /* Sombra sutil */
+  margin: 40px auto;              /* Margen exterior */
+  font-family: inherit;           /* Hereda fuente del padre */
+  font-size: 1rem;                /* Tamaño de fuente */
+}
+
+/* Icono dentro del botón */
+.back-button i {
+  margin-right: 8px;              /* Espacio a la derecha */
+  transition: transform 0.3s ease; /* Transición para efecto hover */
+}
+
+/* Efecto hover */
+.back-button:hover {
+  transform: translateY(-3px) scale(1.03); /* Elevación y escala */
+  box-shadow: 0 8px 25px rgba(0, 95, 115, 0.4); /* Sombra más pronunciada */
+  background: #004d5c;            /* Color más oscuro */
+  color: white;                   /* Texto blanco */
+}
+
+/* Animación del icono al hacer hover */
+.back-button:hover i {
+  transform: translateX(-3px);    /* Desplazamiento hacia la izquierda */
+}
+
+/* Efecto de brillo al pasar el mouse */
+.back-button::before {
+  content: '';                    /* Pseudo-elemento vacío */
+  position: absolute;             /* Posicionamiento absoluto */
+  top: 0;                         /* Alineado arriba */
+  left: -100%;                    /* Inicialmente fuera de vista */
+  width: 100%;                    /* Ancho completo */
+  height: 100%;                   /* Alto completo */
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent); /* Degradado */
+  transition: 0.5s;               /* Transición */
+}
+
+/* Animación del brillo al hacer hover */
+.back-button:hover::before {
+  left: 100%;                     /* Desplazamiento a la derecha */
+}
+
+/* Versión outline para el botón de volver */
+.back-button.outline {
+  background-color: transparent;
+  border: 2px solid var(--teal-color);
+  color: var(--teal-color);
+  box-shadow: none;
+}
+
+.back-button.outline:hover {
+  background-color: var(--teal-color);
+  color: white;
+}
+
+.back-button.outline::before {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.4),
+    transparent
+  );
+}
+
+/* Efecto al hacer clic */
+.back-button:active {
+  transform: translateY(-1px);
+} 
+
+/* 
+ * FOOTER - Pie de página 
+ */
+footer {
+  background: linear-gradient(135deg, #1b1a1a 0%, #2a2929 100%); /* Degradado oscuro */
+  color: var(--white);           /* Texto blanco */
+  padding: 80px 0 30px;          /* Espaciado interno */
+  position: relative;             /* Para pseudo-elementos */
+  overflow: hidden;               /* Oculta contenido que sobresale */
+}
+
+/* Patrón de puntos sutil */
+footer::before {
+  content: "";                    /* Pseudo-elemento vacío */
+  position: absolute;             /* Posicionamiento absoluto */
+  top: 0;                         /* Alineado arriba */
+  left: 0;                        /* Alineado a la izquierda */
+  right: 0;                       /* Ancho completo */
+  height: 100%;                   /* Alto completo */
+  background-image: radial-gradient(rgba(255,255,255,0.05) 1px, transparent 1px); /* Patrón de puntos */
+  background-size: 15px 15px;     /* Tamaño del patrón */
+  opacity: 0.3;                   /* Transparencia */
+}
+
+/* Contenido del footer */
+.footer-content {
+  display: grid;                  /* Diseño con grid */
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Columnas responsive */
+  gap: 50px;                      /* Espacio entre columnas */
+  margin-bottom: 50px;            /* Margen inferior */
+  position: relative;             /* Para mantener sobre pseudo-elementos */
+}
+
+/* Títulos de columnas */
+.footer-column h3 {
+  color: var(--white);            /* Texto blanco */
+  margin-bottom: 1.8rem;          /* Margen inferior */
+  font-size: 1.4rem;              /* Tamaño de fuente */
+  position: relative;             /* Para pseudo-elemento */
+  display: inline-block;          /* Para limitar ancho del subrayado */
+}
+
+/* Subrayado animado */
+.footer-column h3::after {
+  content: '';                    /* Pseudo-elemento vacío */
+  position: absolute;             /* Posicionamiento absoluto */
+  left: 0;                        /* Alineado a la izquierda */
+  bottom: -8px;                   /* Posición vertical */
+  width: 50px;                    /* Ancho inicial */
+  height: 2px;                    /* Grosor */
+  background: var(--primary-color); /* Color */
+  transition: width 0.3s ease;    /* Animación de expansión */
+}
+
+/* Efecto hover en títulos */
+.footer-column:hover h3::after {
+  width: 80px;                    /* Ancho expandido */
+}
+
+/* Texto y enlaces */
+.footer-column p,
+.footer-column a {
+  color: rgba(255, 255, 255, 0.8); /* Texto semitransparente */
+  display: block;                 /* Comportamiento de bloque */
+  margin-bottom: 1rem;            /* Margen inferior */
+  line-height: 1.6;               /* Espaciado de línea */
+  transition: all 0.3s ease;      /* Transición suave */
+}
+
+/* Enlaces con efecto */
+.footer-column a {
+  position: relative;             /* Para pseudo-elemento */
+  padding-left: 0;                /* Padding inicial */
+}
+
+/* Flecha indicadora */
+.footer-column a::before {
+  content: '→';                   /* Flecha */
+  position: absolute;             /* Posicionamiento absoluto */
+  left: -15px;                    /* Posición inicial fuera de vista */
+  opacity: 0;                     /* Inicialmente invisible */
+  transition: all 0.3s ease;      /* Transición suave */
+}
+
+/* Efecto hover en enlaces */
+.footer-column a:hover {
+  color: var(--white);            /* Texto blanco sólido */
+  padding-left: 15px;             /* Desplazamiento del texto */
+}
+
+/* Flecha visible al hacer hover */
+.footer-column a:hover::before {
+  opacity: 1;                     /* Visible */
+  left: 0;                        /* Posición final */
+}
+
+/* 
+ * ICONOS SOCIALES EN FOOTER 
+ * Estilo moderno con efectos
+ */
+.social-links {
+  display: flex;                  /* Disposición en línea */
+  gap: 15px;                      /* Espacio entre iconos */
+  margin-top: 2rem;               /* Margen superior */
+  flex-wrap: wrap;                /* Ajuste en pantallas pequeñas */
+}
+
+/* Estilo de cada icono */
+.social-links a {
+  display: flex;                  /* Centrado con flexbox */
+  align-items: center;            /* Centrado vertical */
+  justify-content: center;        /* Centrado horizontal */
+  width: 45px;                    /* Ancho */
+  height: 45px;                   /* Alto */
+  border-radius: 50%;             /* Forma circular */
+  background: rgba(255, 255, 255, 0.08); /* Fondo semitransparente */
+  backdrop-filter: blur(5px);     /* Efecto de desenfoque */
+  color: var(--white);            /* Color del icono */
+  transition: all 0.3s ease;      /* Transición suave */
+  position: relative;             /* Para pseudo-elemento */
+  overflow: hidden;               /* Oculta contenido que sobresale */
+}
+
+/* Degradado para efecto hover */
+.social-links a::after {
+  content: '';                    /* Pseudo-elemento vacío */
+  position: absolute;             /* Posicionamiento absoluto */
+  top: 0;                         /* Alineado arriba */
+  left: 0;                        /* Alineado a la izquierda */
+  width: 100%;                    /* Ancho completo */
+  height: 100%;                   /* Alto completo */
+  background: linear-gradient(45deg, var(--primary-color), rgba(255,255,255,0.2)); /* Degradado */
+  opacity: 0;                     /* Inicialmente transparente */
+  transition: opacity 0.3s ease;  /* Transición suave */
+}
+
+/* Efecto hover */
+.social-links a:hover {
+  background: transparent;        /* Fondo transparente */
+  transform: translateY(-5px) scale(1.05); /* Elevación y escala */
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2); /* Sombra */
+}
+
+/* Degradado visible al hacer hover */
+.social-links a:hover::after {
+  opacity: 1;                     /* Visible */
+}
+
+/* Asegura que el icono esté sobre el degradado */
+.social-links a i {
+  position: relative;             /* Contexto de apilamiento */
+  z-index: 1;                     /* Sobre el pseudo-elemento */
+}
+
+/* 
+ * COPYRIGHT 
+ * Texto legal en el footer
+ */
+.copyright {
+  text-align: center;             /* Centrado */
+  padding-top: 30px;              /* Espaciado superior */
+  border-top: 1px solid rgba(255, 255, 255, 0.1); /* Línea divisoria */
+  color: rgba(255, 255, 255, 0.7); /* Texto semitransparente */
+  font-size: 0.9rem;              /* Tamaño de fuente */
+  position: relative;             /* Contexto de apilamiento */
+}
+
+
+/* Efecto de onda opcional en la parte superior */
+.wave-divider {
+  position: absolute;
+  top: -1px;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.wave-divider svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 30px;
+}
+
+.wave-divider .shape-fill {
+  fill: #ffffff; /* Color que coincida con la sección superior */
+}
+
+
+/* BARRA DE REDES SOCIALES FLOTANTES EXCLUSIVAS */
+.social-bar-container {
+    position: fixed;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1000;
+}
+
+.social-bar-left {
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    border-radius: 0 12px 12px 0;
+    overflow: hidden;
+}
+
+.social-bar-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.social-bar-link i {
+    font-size: 20px;
+    color: white;
+    transition: transform 0.3s ease;
+}
+
+.social-bar-link .social-bar-text {
+    position: absolute;
+    left: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: white;
+    padding: 5px 10px;
+    border-radius: 0 4px 4px 0;
+    white-space: nowrap;
+    font-size: 14px;
+    font-weight: 500;
+    color: #333;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s ease;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+    margin-left: 5px;
+}
+
+.social-bar-link:hover {
+    width: 60px;
+}
+
+.social-bar-link:hover i {
+    transform: scale(1.1);
+}
+
+.social-bar-link:hover .social-bar-text {
+    opacity: 1;
+    margin-left: 10px;
+}
+
+/* Colores específicos para cada red */
+.social-bar-facebook { background-color: #1877F2; }
+.social-bar-tiktok { background-color: #000000; }
+.social-bar-twitter { background-color: #1DA1F2; }
+.social-bar-youtube { background-color: #FF0000; }
+.social-bar-web { background-color: #4CAF50; }
+
+/* Versión móvil */
+@media (max-width: 768px) {
+    .social-bar-container {
+        top: auto;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        transform: none;
+    }
+    
+    .social-bar-left {
+        flex-direction: row;
+        width: 100%;
+        border-radius: 12px 12px 0 0;
+        justify-content: center;
+    }
+    
+    .social-bar-link {
+        width: 45px;
+        height: 45px;
+    }
+    
+    .social-bar-link:hover {
+        width: 45px;
+    }
+    
+    .social-bar-text {
+        display: none !important;
+    }
+}
+
+
+
+/* Estilos para navegación móvil */
+@media (max-width: 768px) {
+    .nav-links {
+        position: fixed;
+        top: 0;
+        left: -100%;
+        width: 80%;
+        height: 100vh;
+        background: linear-gradient(135deg, var(--teal-color));
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        padding: 80px 30px 30px;
+        transition: var(--transition);
+        z-index: 999;
+    }
+
+    .nav-links.active {
+        left: 0;
+    }
+
+    .nav-links li {
+        margin: 10px 0;
+        width: 100%;
+    }
+
+    .nav-link {
+        display: block;
+        padding: 15px 20px;
+        font-size: 1.2rem;
+        color: white;
+        border-radius: 8px;
+    }
+
+    .nav-link.active {
+        background-color: rgba(255, 255, 255, 0.329);
+    }
+
+    .mobile-menu {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 50px;
+        height: 50px;
+        cursor: pointer;
+        z-index: 1000;
+    }
+
+    .menu-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.7);
+        z-index: 998;
+        opacity: 0;
+        visibility: hidden;
+        transition: var(--transition);
+    }
+
+    .menu-overlay.active {
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+/* Estilos para tablet */
+@media (max-width: 992px) {
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    section {
+        padding: 60px 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero {
+        padding: 180px 0 100px;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .hero p {
+        font-size: 1.1rem;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .section h2 {
+        font-size: 2rem;
+    }
+}
+
+/* Estilos para móvil */
+@media (max-width: 576px) {
+    .hero h1 {
+        font-size: 1.8rem;
+    }
+
+    .section h2 {
+        font-size: 1.8rem;
+    }
+
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+}
