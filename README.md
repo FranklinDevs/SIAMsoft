@@ -1,4 +1,4 @@
-repo :
+Flujo  trabajo con Git informe 2:
 
 git init   
 
